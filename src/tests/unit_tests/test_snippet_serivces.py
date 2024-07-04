@@ -3,7 +3,7 @@ from uuid import uuid4
 
 from models import CodeSnippet
 from schemas.snippet import CodeSnippetCreate, CodeSnippetUpdate, CodeSnippetSchema
-from services.snippet import get_code_snippet_by_uuid, create_code_snippet, update_code_snippet, delete_code_snippet
+from services.snippet import create_code_snippet, update_code_snippet, delete_code_snippet
 
 
 async def test_create_code_snippet(mock_db):
@@ -42,13 +42,6 @@ async def test_update_code_snippet(mock_db):
         id=snippet_id,
         programming_language="Python",
         code="print('Hello, world!')",
-        creator_id=1
-    )
-
-    updated_snippet = CodeSnippet(
-        id=snippet_id,
-        programming_language=snippet_update.programming_language,
-        code=snippet_update.code,
         creator_id=1
     )
 
